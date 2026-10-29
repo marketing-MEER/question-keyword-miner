@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "question-keyword-miner"
+version = "1.0.0"
+description = "Collect question keywords from GSC and free Google autocomplete"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Meer Hamza", email = "meerhamza5@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = ["requests>=2.28", "beautifulsoup4>=4.11", "pandas>=1.5", "openpyxl>=3.1", "click>=8.1"]
+keywords = ["seo", "question", "keyword", "miner"]
+
+[project.urls]
+Homepage = "https://github.com/marketing-MEER/question-keyword-miner"
+"SEO Toolbox" = "https://github.com/marketing-MEER/seo-toolbox"
+LinkedIn = "https://www.linkedin.com/in/meerhamza-seo"
+
+[project.scripts]
+question-keyword-miner = "question_keyword_miner.cli:main"
+
+[tool.setuptools]
+packages = ["question_keyword_miner"]
