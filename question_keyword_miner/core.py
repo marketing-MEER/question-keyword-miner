@@ -139,6 +139,8 @@ def mine(gsc: pd.DataFrame | None, suggestions: pd.DataFrame | None, seeds=()) -
 
 
 def type_summary(questions: pd.DataFrame) -> pd.DataFrame:
+    if questions.empty:  # pandas 2.x can't average an empty object column
+        return pd.DataFrame(columns=["type", "questions", "impressions", "clicks", "avg_words", "answer_format"])
     g = questions.groupby("type").agg(questions=("question", "size"), impressions=("impressions", "sum"),
                                       clicks=("clicks", "sum"), avg_words=("words", "mean")).reset_index()
     g["avg_words"] = g["avg_words"].round(1)
